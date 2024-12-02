@@ -1,0 +1,23 @@
+{
+  "name": "alten-shop",
+  "version": "1.0.0",
+  "description": "Alten Shop Application with Spring Boot Backend and Angular Frontend",
+  "scripts": {
+    "install:all": "npm run install:front && npm run install:back",
+    "install:front": "cd front && npm install",
+    "install:back": "cd back && mvnw.cmd clean install",
+    "start": "concurrently \"npm run start:back\" \"npm run start:front\"",
+    "start:front": "cd front && npm start",
+    "start:back": "cd back && mvnw.cmd spring-boot:run",
+    "build": "npm run build:back && npm run build:front",
+    "build:front": "cd front && npm run build",
+    "build:back": "cd back && mvnw.cmd clean package",
+    "clean": "npm run clean:front && npm run clean:back",
+    "clean:front": "rimraf front/node_modules front/dist",
+    "clean:back": "cd back && mvnw.cmd clean && rimraf target"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.5"
+  }
+} 
